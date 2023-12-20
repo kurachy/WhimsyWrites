@@ -1,0 +1,74 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --primary-color: #a0336f;
+  --main-color: #713e5a;
+  --secondary-color: #D57A66;
+  --background-color: #27474E;
+  --text-color: #EDC79B;
+  --accent-color: #63A375;
+
+  --spacing-unit: 8px;
+  --spacing-xs: var(--spacing-unit);
+  --spacing-sm: calc(1.5 * var(--spacing-unit));
+  --spacing-md: calc(2 * var(--spacing-unit));
+  --spacing-lg: calc(3 * var(--spacing-unit));
+  --spacing-xl: calc(4 * var(--spacing-unit));
+
+  --font-size-xs: 14px;
+  --font-size-sm: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 24px;
+  --font-size-xl: 32px;
+  --font-size-xxl: 40px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+}
+
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#root > :nth-child(2) {  
+  flex: 1;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  overflow-x: hidden;
+
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.secondary-button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}

@@ -1,0 +1,68 @@
+.article-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    border: 4px solid var(--primary-color);
+    text-decoration: none;
+}
+
+
+.article-card__title {
+    flex: 1;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+    margin: var(--spacing-sm) var(--spacing-lg);
+}
+
+.article-card__author-and-time-of-publication {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.article-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+
+.article-card__author .author__avatar {
+    object-fit: cover;
+    width: 40px;
+}
+
+.article-card__author .author__info {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ gap: 4px;
+}
+
+.article-card__author .author__info * {
+    margin: 0;
+}
+
+.article-card__author .author__fullname {
+    font-size: var(--font-size-xs);
+    color: var(--text-color);
+}
+
+.article-card__author .author__username {
+    font-size: var(--font-size-sm);
+    color: var(--accent-color);
+}
+
+.time-of-publication {
+    font-size: var(--font-size-xs);
+    color: var(--text-color);
+}
+
+.article-card__image {
+    height: 280px;
+    object-fit: cover;
+}
+

@@ -1,0 +1,129 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.categories {
+    display: none;
+}
+
+.category-container__read-more {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.home-page__categary-articles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: var(--spacing-xl);
+}
+
+.home-page__category-container {
+    display: grid;
+    padding: 1rem;
+    width: 100%;
+}
+
+.home-page__main-articles {
+    display: grid;
+    padding: 1rem;
+    justify-items: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+}
+
+
+.home-page__category-articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-container__title {
+    width: 100%;
+    font-size: var(--font-size-xl);
+    color: var(--text-color);
+    position: relative;
+}
+
+
+.category-container__title::before,
+.category-container__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--text-color);
+}
+
+.category-container__title::before {
+    top: 0;
+}
+
+.category-container__title::after {
+    bottom: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+    .categories {
+        display: flex;
+        justify-content: space-around;
+        padding: var(--spacing-xs) 0;
+        background-color: var(--primary-color);
+        width: 100%;
+    }
+
+    .categories a {
+        text-decoration: none;
+        color: var(--text-color);
+        background-color: var(--main-color);
+        padding: 4px 8px;
+        border-radius: 8px;
+    }
+
+    .home-page__main-articles {
+        grid-template-columns: auto auto;
+        padding-top: 40px;
+
+    }
+
+    .home-page__main-articles .article-card:nth-child(odd):last-child {
+        grid-column: span 2;
+    }
+
+    .home-page__categary-articles {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-xl);
+    }
+
+    .home-page__categary-articles .article-card {
+        max-width: 320px;
+    }
+
+}
+
+
+@media screen and (min-width: 992px) {
+
+    .home-page__main-articles {
+        grid-template-columns: repeat(6, 1fr);
+        max-width: 1500px;
+    }
+
+    .home-page__main-articles .article-card {
+        grid-column: span 2;
+    }
+
+    .home-page__main-articles .article-card:nth-child(-n+2) {
+        grid-column: span 3;
+    }
+}
