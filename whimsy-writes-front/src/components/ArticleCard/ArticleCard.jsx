@@ -17,11 +17,12 @@ import { Link } from "react-router-dom"
 const ArticleCard = ({ articleCardData }) => {
 
     return (
-        <Link key={articleCardData.id} className="article-card" to={'/ArticlePage/'+articleCardData.id} >
-        
-            <h3 className="article-card__title">
-                {articleCardData.title}
-            </h3>
+        <Link key={articleCardData.id} className="article-card" to={'/ArticlePage/' + articleCardData.id} >
+
+                <h3 className="article-card__title">
+                    {articleCardData.title}
+                </h3>
+            
             <img src={articleCardData.articleImage} alt={articleCardData.title} className="article-card__image" />
             <div className="article-card__author-and-time-of-publication">
                 <div className="article-card__author">

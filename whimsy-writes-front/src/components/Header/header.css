@@ -24,6 +24,7 @@
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
     color: var(--text-color);
+    text-decoration: none;
 }
 
 .header__search {

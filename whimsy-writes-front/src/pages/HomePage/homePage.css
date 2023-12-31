@@ -49,25 +49,9 @@
     font-size: var(--font-size-xl);
     color: var(--text-color);
     position: relative;
-}
-
-
-.category-container__title::before,
-.category-container__title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: var(--text-color);
-}
-
-.category-container__title::before {
-    top: 0;
-}
-
-.category-container__title::after {
-    bottom: 0;
+    padding: 10px;
+    border-top: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color); 
 }
 
 

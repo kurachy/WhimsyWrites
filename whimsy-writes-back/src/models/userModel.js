@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../../config/db');
 
 class UserModel {
   static async getUserByUsername(username) {
@@ -10,6 +10,21 @@ class UserModel {
           reject(err);
         } else {
           resolve(row);
+        }
+      });
+    });
+  }
+
+  static async createUser(userData) {
+    const { username, fullname, avatar, email, password } = userData;
+    const query = 'INSERT INTO users (username, fullname, avatar, email, password) VALUES (?, ?, ?, ?, ?)';
+
+    return new Promise((resolve, reject) => {
+      db.run(query, [username, fullname, avatar, email, password], function(err) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve({ id: this.lastID, username, fullname, avatar, email });
         }
       });
     });

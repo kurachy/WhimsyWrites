@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer.jsx'
 import { Route, Routes } from "react-router-dom"
 import './App.css'
 import ArticlePage from './pages/ArticlePage/ArticlePage.jsx'
+import Signup from './pages/Signup/Signup.jsx'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/ArticlePage/:id" element={<ArticlePage />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
       <Footer />
     </>
