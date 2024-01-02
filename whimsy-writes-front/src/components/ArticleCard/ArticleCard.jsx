@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import "./ArticleCard.css"
+import "./articleCard.css"
 import { Link } from "react-router-dom"
 
 /**

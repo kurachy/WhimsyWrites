@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { required, email, composeValidators } from '../../utils/validation';
 import { createUser } from '../../services/userService';
+import TextInput from '../../components/TextInput/TextInput'
+import { Link } from "react-router-dom"
+import './signup.css'
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -52,59 +55,38 @@ function Signup() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
+    <main className='signup-page'>
+      <h1 className="signup-page__title">Create an account</h1>
+      <form className='signup-page__form' onSubmit={handleSubmit}>
+        <TextInput label="Username*" type="text"
           name="username"
           value={formData.username}
-          onChange={handleChange}
-        />
-        {errors.username && <div style={{ color: 'red' }}>{errors.username}</div>}
-      </label>
-      <label>
-        Fullname:
-        <input
-          type="text"
+          onChange={handleChange} errorMessage={errors.username} />
+        <TextInput label="Full name" type="text"
           name="fullname"
           value={formData.fullname}
-          onChange={handleChange}
-        />
-        {errors.fullname && <div style={{ color: 'red' }}>{errors.fullname}</div>}
-      </label>
-      <label>
-        Avatar:
-        <input
-          type="text"
+          onChange={handleChange} errorMessage={errors.fullname} />
+
+        <TextInput label="Avatar" type="text"
           name="avatar"
           value={formData.avatar}
-          onChange={handleChange}
-        />
-        {errors.avatar && <div style={{ color: 'red' }}>{errors.avatar}</div>}
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
+          onChange={handleChange} errorMessage={errors.avatar} />
+
+        <TextInput label="Email*" type="email"
           name="email"
           value={formData.email}
-          onChange={handleChange}
-        />
-        {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
+          onChange={handleChange} errorMessage={errors.email} />
+
+        <TextInput label="Password*" type="password"
           name="password"
           value={formData.password}
-          onChange={handleChange}
-        />
-        {errors.password && <div style={{ color: 'red' }}>{errors.password}</div>}
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+          onChange={handleChange} errorMessage={errors.password} />
+        <div className='signup-page__submit-and-login-link'>
+          <button className='signup-page__submit' type="submit">Signup</button>
+          <p>Already have an account? <Link className='signup-page__login-link'>Login</Link></p>
+        </div>
+      </form>
+    </main>
   );
 }
 

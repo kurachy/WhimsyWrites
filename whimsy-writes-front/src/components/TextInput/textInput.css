@@ -1,0 +1,32 @@
+.text-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-input input {
+    border: none;
+    border-bottom: 2px solid var(--text-color);
+    color: var(--text-color);
+    background-color:rgba(0,0,0,0.2);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-xs);
+    border-radius: 4px 4px 0 0;
+}
+
+.text-input input:focus {
+    outline: none;
+    border: 2px solid var(--text-color);
+    border-radius: 4px;
+}
+
+.text-input__label {
+    margin-bottom: 6px;
+    color: var(--text-color);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.text-input__error {
+    color: red;
+}
