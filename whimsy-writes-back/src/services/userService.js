@@ -1,8 +1,12 @@
 const UserModel = require('../models/userModel');
 const { required, email, composeValidators } = require('../validation');
+const jwt = require('jsonwebtoken');
 
 
 const bcrypt = require('bcrypt');
+require('dotenv').config();
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
 
 class UserService {
   static async getUserByUsername(username) {
@@ -15,7 +19,13 @@ class UserService {
       ...userData,
       password: hashedPassword
     };
-    return UserModel.createUser(userToCreate);
+    const newUser = await UserModel.createUser(userToCreate);
+
+    const accessToken = jwt.sign({ userId: newUser.id }, ACCESS_TOKEN_SECRET, { expiresIn: '20s' });
+    const refreshToken = jwt.sign({ userId: newUser.id }, REFRESH_TOKEN_SECRET);
+    await UserModel.saveRefreshToken(refreshToken, newUser.id);
+
+    return { newUser ,accessToken, refreshToken };
   }
 
   static validateSignupData(data) {

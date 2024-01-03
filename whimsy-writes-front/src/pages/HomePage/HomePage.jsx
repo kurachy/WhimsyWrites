@@ -1,6 +1,8 @@
 // import { useState } from 'react';
 import './homePage.css';
 import ArticleCard from '../../components/ArticleCard/ArticleCard.jsx'
+import MainArticleCard from '../../components/MainArticleCard/MainArticleCard.jsx'
+
 import React, { useEffect, useState } from 'react';
 import { fetchArticles } from '../../services/articleService'
 
@@ -37,7 +39,7 @@ export default function HomePage() {
                <>
 
                   {ArticleData.slice(0, 5).map(article => (
-                     <ArticleCard key={article.id} articleCardData={{
+                     <MainArticleCard key={article.id} articleCardData={{
                         id: article.id,
                         title: article.title, articleImage: article.image,
                         avatar: article.author_avatar, username: article.author_username, fullname: article.author_fullname,
