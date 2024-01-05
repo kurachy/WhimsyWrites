@@ -9,8 +9,10 @@ class UserController {
     }
 
     try {
-      const signupResult = await UserService.createUser(req.body);
-      res.status(201).json({ message: 'Signup successful', user: signupResult });
+      const {newUser, accessToken, refreshToken} = await UserService.createUser(req.body);
+      
+      res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict' })
+      res.status(201).json({ message: 'Signup successful', user: { newUser, accessToken } });
     } catch (error) {
       res.status(500).json({ message: 'Error creating user', error: error.message });
     }

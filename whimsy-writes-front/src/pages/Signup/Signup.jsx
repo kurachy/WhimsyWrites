@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { required, email, composeValidators } from '../../utils/validation';
 import { createUser, loginUser } from '../../services/userService';
+import { useAuth } from '../../contexts/AuthContext';
+import { login } from '../../services/authService'
 import TextInput from '../../components/TextInput/TextInput'
 import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 import './signup.css'
 
 function Signup({ isLoginPage }) {
+  const navigate = useNavigate();
+  const { setAuthInfo } = useAuth();
   const [formData, setFormData] = useState({
     username: '',
     fullname: '',
@@ -46,8 +51,11 @@ function Signup({ isLoginPage }) {
     e.preventDefault();
     if (validate()) {
       try {
-        const result = isLoginPage ? await loginUser(formData) : await createUser(formData);
-        console.log(`${isLoginPage ? 'Login' : 'Signup'} successful:`, result);
+        const result = isLoginPage ? await login(formData) : await createUser(formData);
+
+        console.log(`${isLoginPage ? 'Login' : 'Signup'} successful`);
+        setAuthInfo( result.accessToken )
+        navigate('/dashboard')
       } catch (error) {
         if (error.errors) {
           setErrors(error.errors);

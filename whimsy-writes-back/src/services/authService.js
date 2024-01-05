@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/userModel');
+const TokenModel = require('../models/tokenModel')
 
 require('dotenv').config();
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
@@ -16,12 +17,12 @@ class AuthService {
     }
 
     const accessToken = jwt.sign({ userId: user.id }, ACCESS_TOKEN_SECRET, { expiresIn: '20s' });
-    const refreshToken = await UserModel.getRefreshTokenForUser(user.id);
+    const refreshToken = await TokenModel.getRefreshTokenForUser(user.id);
     return { accessToken, refreshToken };
   }
 
   static async refresh(expiredAccessToken, refreshToken) {
-    const refreshTokenData = await UserModel.findRefreshToken(refreshToken);
+    const refreshTokenData = await TokenModel.findRefreshToken(refreshToken);
     if (!refreshTokenData) {
       throw new Error('Invalid refresh token');
     }

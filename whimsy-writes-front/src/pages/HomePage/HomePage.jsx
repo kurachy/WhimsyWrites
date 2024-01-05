@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import './homePage.css';
 import ArticleCard from '../../components/ArticleCard/ArticleCard.jsx'
 import MainArticleCard from '../../components/MainArticleCard/MainArticleCard.jsx'

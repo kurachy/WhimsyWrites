@@ -1,4 +1,5 @@
 const UserModel = require('../models/userModel');
+const TokenModel = require('../models/tokenModel')
 const { required, email, composeValidators } = require('../validation');
 const jwt = require('jsonwebtoken');
 
@@ -23,7 +24,7 @@ class UserService {
 
     const accessToken = jwt.sign({ userId: newUser.id }, ACCESS_TOKEN_SECRET, { expiresIn: '20s' });
     const refreshToken = jwt.sign({ userId: newUser.id }, REFRESH_TOKEN_SECRET);
-    await UserModel.saveRefreshToken(refreshToken, newUser.id);
+    await TokenModel.saveRefreshToken(refreshToken, newUser.id);
 
     return { newUser ,accessToken, refreshToken };
   }
