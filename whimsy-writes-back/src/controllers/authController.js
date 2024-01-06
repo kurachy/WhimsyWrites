@@ -6,7 +6,7 @@ class AuthController {
     try {
       const { accessToken, refreshToken } = await AuthService.login(email, password);
 
-      res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict' });
+      res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'Strict' });
       res.json({ accessToken });
     } catch (error) {
       res.status(401).send(error.message);
@@ -15,7 +15,7 @@ class AuthController {
 
   static async logout(req, res) {
     try {
-      res.cookie('refreshToken', '', { expires: new Date(0) });
+      res.cookie('refreshToken', '', { expires: new Date(0), sameSite: 'Strict' });
       res.status(200).send('Logged out');
 
     } catch (error) {

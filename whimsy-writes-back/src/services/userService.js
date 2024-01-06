@@ -16,9 +16,11 @@ class UserService {
 
   static async createUser(userData) {
     const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const userAvatar = userData.avatar === "" ? 'https://www.pngitem.com/pimgs/m/137-1370051_avatar-generic-avatar-hd-png-download.png' : userData.avatar
     const userToCreate = {
       ...userData,
-      password: hashedPassword
+      password: hashedPassword,
+      avatar: userAvatar
     };
     const newUser = await UserModel.createUser(userToCreate);
 

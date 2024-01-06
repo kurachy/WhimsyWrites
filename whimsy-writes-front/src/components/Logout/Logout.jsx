@@ -1,6 +1,9 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { logout } from '../../services/authService'
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './logout.css'
 
 
 const Logout = () => {
@@ -14,7 +17,7 @@ const Logout = () => {
   };
 
   return (
-    <button onClick={handleLogout}>Logout</button>
+    <button className='logout-button' onClick={handleLogout}>Logout <FontAwesomeIcon icon={faRightFromBracket} /></button>
   );
 };
 
