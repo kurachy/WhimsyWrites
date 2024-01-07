@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const renewAccessToken = async (expiredAccessToken) => {
-
   try {
     const response = await axios.post('/api/token', {
       expiredAccessToken

@@ -67,7 +67,7 @@ export default function Header() {
                 {authState.accessToken ? 
                 <details className="header__profile-dropdown">
                 <summary role="button">
-                  <a className="profile-dropdown__image"><img src='https://img.freepik.com/premium-vector/cute-smiling-boy-avatar-flat-style-vector-illustration_710508-1241.jpg'></img></a>
+                  <a className="profile-dropdown__image"><img src={authState.user? authState.user.avatar : ""} alt='profile photo'></img></a>
                 </summary>
                 <ul>
                   <li><Link to={'/dashboard'}>Dashboard <FontAwesomeIcon icon={faNewspaper} /></Link></li>

@@ -15,6 +15,20 @@ class UserModel {
     });
   }
 
+  static async getUserById(id) {
+    const query = 'SELECT * FROM users WHERE id = ?';
+
+    return new Promise((resolve, reject) => {
+      db.get(query, [id], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
+
   static async getUserByEmail(email) {
     const query = 'SELECT * FROM users WHERE email = ?';
 

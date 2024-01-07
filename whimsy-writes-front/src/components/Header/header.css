@@ -158,8 +158,8 @@
     margin: -50px 0 0 -50px;
     padding: 25px;
     padding-top: 106px;
-    background-color: var(--main-color);
-    border: 2px solid var(--accent-color);
+    background-color: var(--primary-color);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;

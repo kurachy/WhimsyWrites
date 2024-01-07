@@ -14,6 +14,17 @@ class UserService {
     return UserModel.getUserByUsername(username);
   }
 
+  static async getUserById(id) {
+    const user = await UserModel.getUserById(id);
+    
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    const { password, ...userWithoutPassword } = user;
+    return userWithoutPassword;
+  }
+
   static async createUser(userData) {
     const hashedPassword = await bcrypt.hash(userData.password, 10);
     const userAvatar = userData.avatar === "" ? 'https://www.pngitem.com/pimgs/m/137-1370051_avatar-generic-avatar-hd-png-download.png' : userData.avatar

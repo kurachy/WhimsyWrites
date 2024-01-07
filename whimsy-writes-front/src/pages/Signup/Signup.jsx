@@ -54,7 +54,7 @@ function Signup({ isLoginPage }) {
         const result = isLoginPage ? await login(formData) : await createUser(formData);
 
         console.log(`${isLoginPage ? 'Login' : 'Signup'} successful`);
-        setAuthInfo( result.accessToken )
+        await setAuthInfo( result.accessToken )
         navigate('/dashboard')
       } catch (error) {
         if (error.errors) {

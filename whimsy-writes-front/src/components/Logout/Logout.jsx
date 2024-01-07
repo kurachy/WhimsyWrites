@@ -10,7 +10,7 @@ const Logout = () => {
   const { setAuthInfo } = useAuth();
 
   const handleLogout = async () => {
-    setAuthInfo(null);
+    await setAuthInfo(null);
     localStorage.removeItem('accessToken');
 
     await logout();
