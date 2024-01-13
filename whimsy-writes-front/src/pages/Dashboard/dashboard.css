@@ -1,0 +1,61 @@
+.dashboard-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 var(--spacing-sm);
+
+}
+
+.dashboard__table-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.dashboard__table-buttons button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    border: 1px solid var(--text-color);
+    display: flex;
+    padding: 4px;
+    border-radius: 10px;
+    width: 40px;
+    justify-content: center;
+}
+
+.dashboard-page .dashboard-page__table-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard__add-article-btn {
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    width: fit-content;
+    align-self: flex-end;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0 var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+
+
+}
+
+@media screen and (min-width: 768px) {
+    .dashboard__table-buttons button {
+        font-size: var(--font-size-lg);
+    }
+}

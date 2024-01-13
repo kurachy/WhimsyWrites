@@ -9,9 +9,6 @@ export const createUser = async (userData) => {
   }
 };
 
-export const loginUser = async (userData) => {
-  return null
-}
 
 export const getUserById = async (userId) => {
 

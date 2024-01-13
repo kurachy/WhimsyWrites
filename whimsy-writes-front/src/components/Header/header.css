@@ -38,7 +38,7 @@
 }
 
 .header__main-links ul {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     border-radius: 14px;
     display: flex;
     gap: var(--spacing-md);
@@ -55,7 +55,7 @@
 }
 
 .header__main-links .selected a {
-    color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 .login-button,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { required, email, composeValidators } from '../../utils/validation';
-import { createUser, loginUser } from '../../services/userService';
+import { createUser } from '../../services/userService';
 import { useAuth } from '../../contexts/AuthContext';
 import { login } from '../../services/authService'
 import TextInput from '../../components/TextInput/TextInput'

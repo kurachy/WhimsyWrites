@@ -1,12 +1,18 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  --primary-color: #a0336f;
+  /* --primary-color: #a0336f;
   --main-color: #713e5a;
   --secondary-color: #D57A66;
+  --accent-color: #63A375; */
   --background-color: #27474E;
   --text-color: #EDC79B;
-  --accent-color: #63A375;
+  
+
+  --primary-color: #709176;
+  --main-color: #526a56;
+  --secondary-color: #581F18;
+  --accent-color: #B0FF92;
 
   --spacing-unit: 8px;
   --spacing-xs: var(--spacing-unit);
